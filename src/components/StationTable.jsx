@@ -82,7 +82,7 @@ const StationTable = () => {
       stationTableData.length > 0 ? (
         <>
           <Typography variant="h6" sx={{ marginTop: 4 }}>
-            Flood Station Table Data
+            Flood Station Table Data Showing Last 24 hours Readings
           </Typography>
           <TableContainer
             component={Paper}

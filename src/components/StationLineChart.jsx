@@ -60,7 +60,7 @@ const StationLineChart = () => {
       }}
     >
       <Typography variant="h6" sx={{ mt: 1 }}>
-        Flood Station Graph(s)
+        Flood Station Monitoring Graph(s) Showing Last 24 hours Readings
       </Typography>
       {!stationChartDataloading &&
       stationChartData &&
