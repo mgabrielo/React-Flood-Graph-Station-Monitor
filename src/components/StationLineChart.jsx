@@ -15,39 +15,34 @@ const StationLineChart = () => {
   }
 
   const stationFind = (value) => {
-    const readingMeasure =
-      value &&
-      value.length > 0 &&
-      value.map((item) => {
-        if (item && item?.measure) {
-          return item?.measure;
-        }
-        return null;
-      });
+    var stationQualifier;
 
-    const qualifier =
-      readingMeasure.length > 0 &&
-      readingMeasure.map((data) => {
-        if (data) {
-          return (
-            allStations.length > 0 &&
-            allStations.map((item) => {
-              if (item) {
-                return item.measures.map((itm) => {
-                  if (itm && itm["@id"] === data && itm?.qualifier) {
-                    return itm?.qualifier;
-                  }
-                  return null;
-                });
+    allStations.length > 0 &&
+      allStations.find((item) => {
+        if (item) {
+          item?.measures &&
+            item?.measures.length > 0 &&
+            item?.measures.find((itm) => {
+              if (itm && itm?.qualifier) {
+                const getVal =
+                  value.length > 0 &&
+                  value.find((data) => {
+                    if (data?.measure === itm["@id"]) {
+                      stationQualifier = itm?.qualifier;
+                    }
+                    return null;
+                  });
+
+                return getVal;
               }
               return null;
-            })
-          );
+            });
+          return null;
         }
         return null;
       });
 
-    return qualifier[0];
+    return stationQualifier;
   };
 
   return (
