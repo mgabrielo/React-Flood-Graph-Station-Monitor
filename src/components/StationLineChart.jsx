@@ -59,6 +59,9 @@ const StationLineChart = () => {
         flexDirection: "column",
       }}
     >
+      <Typography variant="h6" sx={{ mt: 1 }}>
+        Flood Station Graph(s)
+      </Typography>
       {!stationChartDataloading &&
       stationChartData &&
       stationChartData.length > 0 ? (
