@@ -110,7 +110,7 @@ const StationLineChart = () => {
                   x: {
                     title: {
                       display: true,
-                      text: "Date and Time",
+                      text: "Time",
                     },
                     ticks: {
                       maxTicksLimit: 24,
