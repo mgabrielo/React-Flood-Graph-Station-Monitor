@@ -77,49 +77,57 @@ const StationTable = () => {
 
   return (
     <>
-      {!stationTableDataloading &&
-      stationTableData &&
-      stationTableData.length > 0 ? (
-        <>
-          <Typography variant="h6" sx={{ marginTop: 4 }}>
-            Flood Station Table Data Showing Last 24 hours Readings
-          </Typography>
-          <TableContainer
-            component={Paper}
-            sx={{
-              marginLeft: "auto",
-              marginRight: "auto",
-              marginTop: 4,
-              width: "100%",
-              display: "flex",
-            }}
-          >
-            <Table sx={{ minWidth: 500 }} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell align="center">Date Time</StyledTableCell>
-                  <StyledTableCell align="center">Qualifier</StyledTableCell>
-                  <StyledTableCell align="center">Value</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {stationTableData.map((row, index) => (
-                  <StyledTableRow key={index}>
-                    <StyledTableCell align="center">
-                      {formatTime(row?.dateTime)}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {stationFind(row?.measure)}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {row?.value}
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </>
+      {!stationTableDataloading && stationTableData ? (
+        stationTableData.length > 0 ? (
+          <>
+            <Typography variant="h6" sx={{ marginTop: 4 }}>
+              Flood Station Table Data Showing Last 24 hours Readings
+            </Typography>
+            <TableContainer
+              component={Paper}
+              sx={{
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginTop: 4,
+                width: "100%",
+                display: "flex",
+              }}
+            >
+              <Table sx={{ minWidth: 500 }} aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell align="center">Date Time</StyledTableCell>
+                    <StyledTableCell align="center">Qualifier</StyledTableCell>
+                    <StyledTableCell align="center">Value</StyledTableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {stationTableData.map((row, index) => {
+                    if (row) {
+                      // console.log("row", row);
+                      return (
+                        <StyledTableRow key={index}>
+                          <StyledTableCell align="center">
+                            {formatTime(row?.dateTime)}
+                          </StyledTableCell>
+                          <StyledTableCell align="center">
+                            {stationFind(row?.measure)}
+                          </StyledTableCell>
+                          <StyledTableCell align="center">
+                            {row?.value}
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      );
+                    }
+                    return null;
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </>
+        ) : (
+          <Typography>No Readings Available</Typography>
+        )
       ) : (
         <Box>
           <Typography>Loading Table Data...Please Wait</Typography>
