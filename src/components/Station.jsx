@@ -153,7 +153,7 @@ const Station = () => {
       </Typography>
       {!allStationsloading && allStations && allStations.length > 0 ? (
         allStations.map((res, index) => {
-          if (res?.notation) {
+          if (res?.notation && res?.label) {
             return (
               <Fragment key={index}>
                 <Accordion
