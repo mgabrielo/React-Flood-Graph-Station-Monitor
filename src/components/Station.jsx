@@ -59,7 +59,6 @@ const Station = () => {
     (state) => state.station
   );
 
-  console.log(allStations);
   const [expanded, setExpanded] = useState(null);
 
   const handleAccordionChange = (index) => {
