@@ -1,12 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import Station from './components/Station';
-import { Container } from '@mui/material';
+import "./App.css";
+import Station from "./components/Station";
+import { Container } from "@mui/material";
 
 function App() {
   return (
-    <Container maxWidth='lg' className='App' sx={{justifyContent:'center'}}>
-      <Station/>
+    <Container maxWidth="lg" className="App" sx={{ justifyContent: "center" }}>
+      <Station />
     </Container>
   );
 }
