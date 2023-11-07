@@ -184,7 +184,7 @@ const Station = () => {
                       color: expanded === index ? "#fff" : "#154360",
                     }}
                   >
-                    <Typography>{res.notation}</Typography>
+                    <Typography>{res.label}</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     {expanded === index && <StationLineChart />}
