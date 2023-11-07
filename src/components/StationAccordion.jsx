@@ -105,52 +105,45 @@ const StationAccordion = ({ stationData }) => {
   }
 
   return (
-    <>
-      {
-        <Accordion
-          expanded={expanded === "panel1"}
-          onChange={handleChange("panel1")}
-        >
-          <AccordionSummary
-            aria-controls="panel1d-content"
-            id="panel1d-header"
-            expandIcon={
-              expanded ? (
-                <RemoveIcon
-                  sx={{ fontSize: "0.9rem", color: expanded ? "#fff" : "none" }}
-                />
-              ) : (
-                <AddIcon
-                  sx={{
-                    fontSize: "0.9rem",
-                    color: expanded ? "none" : "#2C3E50",
-                  }}
-                />
-              )
-            }
-            sx={{
-              backgroundColor: expanded ? "#85929E" : "#ccc",
-              color: expanded ? "#fff" : "#154360",
-            }}
-            onClick={() => handleStation(stationData?.notation)}
-          >
-            <Typography>{stationData?.notation}</Typography>
-          </AccordionSummary>
-          <AccordionDetails
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              marginLeft: "auto",
-              marginRight: "auto",
-              width: "90%",
-            }}
-          >
-            {expanded && <StationLineChart />}
-            {expanded && <StationTable />}
-          </AccordionDetails>
-        </Accordion>
-      }
-    </>
+    <Accordion
+      expanded={expanded === "panel1"}
+      onChange={handleChange("panel1")}
+    >
+      <AccordionSummary
+        aria-controls="panel1d-content"
+        id="panel1d-header"
+        expandIcon={
+          expanded ? (
+            <RemoveIcon
+              sx={{ fontSize: "0.9rem", color: expanded ? "#fff" : "none" }}
+            />
+          ) : (
+            <AddIcon
+              sx={{ fontSize: "0.9rem", color: expanded ? "none" : "#2C3E50" }}
+            />
+          )
+        }
+        sx={{
+          backgroundColor: expanded ? "#85929E" : "#ccc",
+          color: expanded ? "#fff" : "#154360",
+        }}
+        onClick={() => handleStation(stationData?.notation)}
+      >
+        <Typography>{stationData?.notation}</Typography>
+      </AccordionSummary>
+      <AccordionDetails
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          marginLeft: "auto",
+          marginRight: "auto",
+          width: "90%",
+        }}
+      >
+        {expanded && <StationLineChart />}
+        {expanded && <StationTable />}
+      </AccordionDetails>
+    </Accordion>
   );
 };
 
