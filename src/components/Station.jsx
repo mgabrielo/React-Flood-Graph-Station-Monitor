@@ -59,6 +59,7 @@ const Station = () => {
     (state) => state.station
   );
 
+  console.log(allStations);
   const [expanded, setExpanded] = useState(null);
 
   const handleAccordionChange = (index) => {
@@ -184,7 +185,9 @@ const Station = () => {
                       color: expanded === index ? "#fff" : "#154360",
                     }}
                   >
-                    <Typography>{res.label}</Typography>
+                    <Typography>
+                      {res?.label} - ({res?.notation})
+                    </Typography>
                   </AccordionSummary>
                   <AccordionDetails
                     sx={{
