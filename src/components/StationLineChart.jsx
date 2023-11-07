@@ -6,8 +6,9 @@ import { useSelector } from "react-redux";
 import { Fragment } from "react";
 
 const StationLineChart = () => {
-  const { stationChartData, allStations, stationChartDataloading } =
-    useSelector((state) => state.station);
+  const { stationChartData, allStations } = useSelector(
+    (state) => state.station
+  );
 
   function formatTime(value) {
     const date = parseISO(value);
@@ -55,9 +56,7 @@ const StationLineChart = () => {
         flexDirection: "column",
       }}
     >
-      {!stationChartDataloading &&
-      stationChartData &&
-      stationChartData.length > 0 ? (
+      {stationChartData.length > 0 &&
         stationChartData.map((data, index) => {
           if (data.length > 0) {
             return (
@@ -132,12 +131,7 @@ const StationLineChart = () => {
             );
           }
           return null;
-        })
-      ) : (
-        <Box>
-          <Typography>Loading Data Chart...Please Wait</Typography>
-        </Box>
-      )}
+        })}
     </Box>
   );
 };
