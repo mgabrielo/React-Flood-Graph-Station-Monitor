@@ -186,7 +186,15 @@ const Station = () => {
                   >
                     <Typography>{res.label}</Typography>
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                      width: "90%",
+                    }}
+                  >
                     {expanded === index && <StationLineChart />}
                     {expanded === index && <StationTable />}
                   </AccordionDetails>
