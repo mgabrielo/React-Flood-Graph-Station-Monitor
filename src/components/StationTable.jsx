@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { format, parseISO } from "date-fns";
 import { useSelector } from "react-redux";
-import { Box, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -129,8 +129,18 @@ const StationTable = () => {
           <Typography>No Readings Available</Typography>
         )
       ) : (
-        <Box>
-          <Typography>Loading Table Data...Please Wait</Typography>
+        <Box
+          sx={{
+            display: "flex",
+            width: "100%",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            marginY: 5,
+          }}
+        >
+          <CircularProgress disableShrink color="inherit" />
+          <Typography sx={{ mt: 4 }}>Loading Data...Please Wait</Typography>
         </Box>
       )}
     </>
