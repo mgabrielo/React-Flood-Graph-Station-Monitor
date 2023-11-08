@@ -111,13 +111,13 @@ const Station = () => {
             dispatch(stationTableSuccess(filteringStation));
             dispatch(stationChartStart());
             const vals =
-              stationRef.length > 0 &&
+              stationRef?.measures.length > 0 &&
               stationRef.measures.map((data) => {
-                if (data) {
+                if (data && data["@id"]) {
                   return (
                     filteringStation.length > 0 &&
                     filteringStation.filter((ref) => {
-                      if (ref) {
+                      if (ref && ref?.measure) {
                         return ref?.measure === data["@id"];
                       }
                       return null;
@@ -159,7 +159,7 @@ const Station = () => {
       </Typography>
       {!allStationsloading && allStations && allStations.length > 0 ? (
         allStations.map((res, index) => {
-          if (res?.notation && res?.label) {
+          if (res && res?.notation && res?.label) {
             return (
               <Fragment key={index}>
                 <Accordion
