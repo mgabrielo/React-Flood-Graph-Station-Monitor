@@ -218,9 +218,7 @@ const Station = () => {
           }}
         >
           <CircularProgress disableShrink color="inherit" />
-          <Typography sx={{ mt: 4 }}>
-            Loading Data Table...Please Wait
-          </Typography>
+          <Typography sx={{ mt: 4 }}>Loading...Please Wait</Typography>
         </Box>
       )}
     </Box>
