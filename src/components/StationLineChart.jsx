@@ -1,7 +1,8 @@
 import { Line } from "react-chartjs-2";
 import { format, parseISO } from "date-fns";
 import { Chart as ChartJs } from "chart.js/auto";
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
 import { Fragment } from "react";
 
