@@ -73,7 +73,7 @@ const Station = () => {
         dispatch(stationStart());
         await axios
           .get(
-            `https://environment.data.gov.uk/flood-monitoring/id/stations?parameter=level&_limit=100`
+            `https://environment.data.gov.uk/flood-monitoring/id/stations?_limit=100`
           )
           .then((res) => {
             if (res.status === 200) {
