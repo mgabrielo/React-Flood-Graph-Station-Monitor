@@ -95,7 +95,10 @@ const StationTable = () => {
                 display: "flex",
               }}
             >
-              <Table sx={{ minWidth: 500 }} aria-label="customized table">
+              <Table
+                sx={{ minWidth: "fit-content" }}
+                aria-label="customized table"
+              >
                 <TableHead>
                   <TableRow>
                     <StyledTableCell align="center">Date Time</StyledTableCell>
