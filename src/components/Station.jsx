@@ -111,10 +111,12 @@ const Station = () => {
             dispatch(stationTableSuccess(filteringStation));
             dispatch(stationChartStart());
             const vals =
+              stationRef?.measures &&
               stationRef?.measures.length > 0 &&
               stationRef.measures.map((data) => {
                 if (data && data["@id"]) {
                   return (
+                    filteringStation &&
                     filteringStation.length > 0 &&
                     filteringStation.filter((ref) => {
                       if (ref && ref?.measure) {
