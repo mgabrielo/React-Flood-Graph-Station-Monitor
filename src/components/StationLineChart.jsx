@@ -106,7 +106,9 @@ const StationLineChart = () => {
                           beginAtZero: true,
                           title: {
                             display: true,
-                            text: `${stationDetails?.parameterName}`,
+                            text:
+                              stationDetails?.parameterName &&
+                              `${stationDetails?.parameterName}`,
                           },
                         },
                         x: {
