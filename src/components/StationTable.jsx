@@ -104,7 +104,6 @@ const StationTable = () => {
                 <TableBody>
                   {stationTableData.map((row, index) => {
                     if (row) {
-                      // console.log("row", row);
                       return (
                         <StyledTableRow key={index}>
                           <StyledTableCell align="center">
