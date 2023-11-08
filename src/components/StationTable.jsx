@@ -59,7 +59,7 @@ const StationTable = () => {
       val.map((item) => {
         if (item && item?.measures) {
           return item?.measures.map((itm) => {
-            if (itm && itm["@id"] === value) {
+            if (itm && itm["@id"] === value && itm?.qualifier) {
               return itm.qualifier;
             }
             return null;
