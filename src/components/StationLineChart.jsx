@@ -25,11 +25,11 @@ const StationLineChart = () => {
           item?.measures &&
             item?.measures.length > 0 &&
             item?.measures.find((itm) => {
-              if (itm && itm?.qualifier) {
+              if (itm && itm?.qualifier && itm["@id"]) {
                 const getVal =
                   value.length > 0 &&
                   value.find((data) => {
-                    if (data?.measure === itm["@id"]) {
+                    if (data && data?.measure === itm["@id"]) {
                       stationQualifier = itm?.qualifier;
                     }
                     return null;
@@ -85,7 +85,7 @@ const StationLineChart = () => {
                         {
                           label: `Graph ${
                             index + 1
-                          } - Qualifier :  (${stationFind(data)})`,
+                          } - Qualifier : (${stationFind(data)})`,
                           data: data.map((point) => {
                             if (point) {
                               return point.value;
