@@ -167,10 +167,10 @@ const Station = () => {
                 <Accordion
                   expanded={expanded === index}
                   onChange={() => handleAccordionChange(index)}
-                  onClick={() => handleStation(res)}
                   sx={{ marginBottom: 0 }}
                 >
                   <AccordionSummary
+                    onClick={() => handleStation(res)}
                     expandIcon={
                       expanded === index ? (
                         <RemoveIcon
