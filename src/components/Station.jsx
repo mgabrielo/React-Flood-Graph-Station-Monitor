@@ -77,8 +77,8 @@ const Station = () => {
           )
           .then((res) => {
             if (res.status === 200) {
-              const allStations = res?.data?.items;
-              dispatch(stationSuccess(allStations));
+              const all_stations = res?.data?.items;
+              dispatch(stationSuccess(all_stations));
             }
           })
           .catch((err) => {
