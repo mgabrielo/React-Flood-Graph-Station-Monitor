@@ -1,7 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { styled } from "@mui/material/styles";
-import { Box, CircularProgress, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
