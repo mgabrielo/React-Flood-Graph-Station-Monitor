@@ -17,9 +17,8 @@ const StationLineChart = () => {
     return formattedTime;
   }
 
+  var stationDetails;
   const stationFind = (value) => {
-    var stationQualifier;
-
     allStations.length > 0 &&
       allStations.find((item) => {
         if (item) {
@@ -31,7 +30,7 @@ const StationLineChart = () => {
                   value.length > 0 &&
                   value.find((data) => {
                     if (data && data?.measure === itm["@id"]) {
-                      stationQualifier = itm?.qualifier;
+                      stationDetails = itm;
                     }
                     return null;
                   });
@@ -44,8 +43,9 @@ const StationLineChart = () => {
         }
         return null;
       });
-
-    return stationQualifier;
+    if (stationDetails !== null && stationDetails?.qualifier) {
+      return stationDetails.qualifier;
+    }
   };
 
   return (
@@ -106,7 +106,7 @@ const StationLineChart = () => {
                           beginAtZero: true,
                           title: {
                             display: true,
-                            text: "Level",
+                            text: `${stationDetails?.parameterName}`,
                           },
                         },
                         x: {
