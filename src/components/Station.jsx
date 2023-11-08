@@ -110,17 +110,22 @@ const Station = () => {
             const filteringStation = res?.data?.items;
             dispatch(stationTableSuccess(filteringStation));
             dispatch(stationChartStart());
-            const vals = stationRef.measures.map((data) => {
-              if (data) {
-                return filteringStation.filter((ref) => {
-                  if (ref) {
-                    return ref?.measure === data["@id"];
-                  }
-                  return null;
-                });
-              }
-              return null;
-            });
+            const vals =
+              stationRef.length > 0 &&
+              stationRef.measures.map((data) => {
+                if (data) {
+                  return (
+                    filteringStation.length > 0 &&
+                    filteringStation.filter((ref) => {
+                      if (ref) {
+                        return ref?.measure === data["@id"];
+                      }
+                      return null;
+                    })
+                  );
+                }
+                return null;
+              });
 
             if (vals && vals.length > 0) {
               dispatch(stationChartSuccess(vals));
