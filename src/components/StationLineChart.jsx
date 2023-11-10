@@ -108,7 +108,10 @@ const StationLineChart = () => {
                             display: true,
                             text:
                               stationDetails?.parameterName &&
-                              `${stationDetails?.parameterName}`,
+                              `${stationDetails?.parameterName} Paramater Values`,
+                          },
+                          ticks: {
+                            maxTicksLimit: 20,
                           },
                         },
                         x: {

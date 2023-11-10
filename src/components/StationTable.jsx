@@ -103,7 +103,9 @@ const StationTable = () => {
                   <TableRow>
                     <StyledTableCell align="center">Date Time</StyledTableCell>
                     <StyledTableCell align="center">Qualifier</StyledTableCell>
-                    <StyledTableCell align="center">Value</StyledTableCell>
+                    <StyledTableCell align="center">
+                      Parameter Values
+                    </StyledTableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
